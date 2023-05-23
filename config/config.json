@@ -14,7 +14,7 @@
     "dialect": "postgres"
   },
   "production": {
-    "username": "postgres",
+    "username": "postgres", 
     "password": "batata",
     "database": "biblioteca",
     "host": "127.0.0.1",

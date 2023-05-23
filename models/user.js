@@ -1,6 +1,9 @@
 const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = new Sequelize('sqlite::memory:');
-
+// const sequelize = new Sequelize('sqlite::memory:');
+const sequelize = new Sequelize('biblioteca', 'postgres', 'batata', {
+  host: 'localhost',
+  dialect: 'postgres',
+});
 const User = sequelize.define('User', {
   // Model attributes are defined here
   firstName: {
@@ -38,3 +41,6 @@ const User = sequelize.define('User', {
 
 // `sequelize.define` also returns the model
 console.log(User === sequelize.models.User); 
+
+module.exports = User;
+
