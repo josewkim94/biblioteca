@@ -7,15 +7,19 @@ const controller = require('../controller/pageRedirect');
 
 
 // Serve static files
-router.use('/style', express.static(styleDirectory));
+// router.use('/style', express.static(styleDirectory));
 
 // Route handler for the root URL
-router.get('/', (req, res) => {
-  console.log("router / get")
-  res.sendFile(path.join(viewsDirectory, 'index.html'));
-});
+// router.get('/', (req, res) => {
+//   console.log("router / get")
+//   res.sendFile(path.join(viewsDirectory, 'index.ejs'));
+// });
+router.get('/registerBook', controller.redirectRegisterBook);
+router.post('/registerBook', controller.registerBook);
+router.get('/', controller.index);
 router.get('/register', controller.registerPage);
 router.post('/register', controller.createUser);
 router.get('/login', controller.loginPage);
 router.post('/login', controller.login);
+router.get('/logout', controller.logout);
 module.exports = router;
